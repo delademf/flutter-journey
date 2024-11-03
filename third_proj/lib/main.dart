@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:third_proj/helper/api_services.dart';
+import 'package:third_proj/screens/burger_spot.dart';
 import 'package:third_proj/screens/chats.dart';
 import 'package:third_proj/screens/logIn_screen.dart';
 import 'package:third_proj/screens/main_screen.dart';
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         '/Chats': (context) => Chats(),
         '/Prifile': (context) => Profile(),
         '/Mainscreen': (context) => MainScreen(),
+        '/BurgerSpot': (context) => BurgerSpot(),
 
         // Add more routes as needed
       },

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:third_proj/screens/account.dart';
 import 'package:third_proj/screens/chats.dart';
 import 'package:third_proj/screens/dashboard.dart';
 import 'package:third_proj/screens/orders.dart';
@@ -21,9 +22,14 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       backgroundColor: Colors.white,
-      bottomNavigationBar: NavigationBar(
-        backgroundColor: Color(0xFF31B2ED),
+      bottomNavigationBar:NavigationBar(
+
+        indicatorShape: CircleBorder(side: BorderSide(color: Colors.white),),
+        labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+        backgroundColor: Colors.white,
+        // backgroundColor: Color(0xFF31B2ED),
         onDestinationSelected: (int index) {
           setState(() {
             currentPageIndex = index;
@@ -41,33 +47,35 @@ class _MainScreenState extends State<MainScreen> {
           //   icon: Badge(child: Icon(Icons.notifications_sharp)),
           //   label: 'Notifications',
           // ),
+          
           NavigationDestination(
             selectedIcon:
                 Icon(Icons.home, color: Color(0xFF31B2ED),),
             icon: Icon(Icons.home_outlined,
-                color: Colors.white),
+                color: Color(0xFF31B2ED)),
             label: 'Home',
           ),
           NavigationDestination(
             selectedIcon:
-                Icon(Icons.search, color: Color(0xFF31B2ED),),
-            icon: Icon(Icons.shopping_bag_outlined,
-                color: Colors.white),
+                Icon(Icons.shopping_cart_outlined, color: Color(0xFF31B2ED),),
+            icon: Icon(Icons.shopping_cart_rounded,
+                color: Color(0xFF31B2ED)),
             label: 'Orders',
           ),
           NavigationDestination(
             selectedIcon:
-                Icon(Icons.shopping_cart, color: Color(0xFF31B2ED),),
-            icon: Icon(Icons.chat_outlined,
-                color: Colors.white),
-            label: 'Chats',
+                Icon(Icons.search, color: Color(0xFF31B2ED),),
+            icon: Icon(Icons.search,
+                color: Color(0xFF31B2ED)),
+            label: 'Search',
+
           ),
           NavigationDestination(
             selectedIcon:
-                Icon(Icons.person_3_rounded, color: Color(0xFF31B2ED),),
-            icon: Icon(Icons.person_3_rounded,
-                color: Colors.white),
-            label: 'Profile',
+                Icon(Icons.account_circle, color: Color(0xFF31B2ED),),
+            icon: Icon(Icons.account_circle_rounded,
+                color: Color(0xFF31B2ED)),
+            label: 'Account',
           ),
           // NavigationDestination(
           //   icon: Badge(
@@ -83,7 +91,7 @@ class _MainScreenState extends State<MainScreen> {
         Dashboard(),
         Orders(),
         Chats(),
-        Profile()
+        Account()
 
         /// Notifications page
         
@@ -105,3 +113,11 @@ class _MainScreenState extends State<MainScreen> {
 //                   ),
 //                   color: Color(0xFF31B2ED),
 //               ),
+
+//  shape: RoundedRectangleBorder(
+//     borderRadius: BorderRadius.only(
+//       topRight: Radius.circular(15.0),
+//       topLeft: Radius.circular(15.0),
+//     ),
+
+
