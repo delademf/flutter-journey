@@ -2,7 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:third_proj/helper/constant.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
   const UpdateProfileScreen({super.key});
@@ -293,7 +295,7 @@ body: SingleChildScrollView(
     int? userId = prefs.getInt('userId');
 
     // Create the URI
-    var uri = Uri.parse("https://c8aa-196-61-37-18.ngrok-free.app/user/update-user/$userId");
+    var uri = Uri.parse("$baseUrl/user/update-user/$userId");
 
     Map<String, String> headers = {"Content-Type": "application/json"};
 
@@ -325,9 +327,9 @@ body: SingleChildScrollView(
     //   print('Failed with response code: ${response.statusCode}');
     //   return false;
     // }
-
+Logger().d("Updating..........................");
     if (response.statusCode == 200) {
-      Navigator.pushNamed(context, '/LogIn');
+      Navigator.pushNamed(context, '/logIn');
     }
 
     return true;

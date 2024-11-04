@@ -22,11 +22,18 @@ class RestaurantCard extends StatelessWidget {
         children: [
           Image.memory(imageBytes),
       Container(
-        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-        borderRadius: BorderRadius.circular(8)),
-        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-        child: ElevatedButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => RestaurantScreen(id: restaurantId)));},child:  Text('KFC',style: TextStyle(fontSize: 14,color:Colors.black,fontWeight: FontWeight.w800)))),
-        SizedBox(height: 20,),
+        // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+        // borderRadius: BorderRadius.circular(8)),
+        // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+        child: ElevatedButton(onPressed: (){ 
+          Navigator.push(context, MaterialPageRoute(builder: (context) => RestaurantScreen(id: restaurantId)));},
+          child:  Text('KFC',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)),
+          style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+          )
+          ),
+        
       ]);
   }
 }

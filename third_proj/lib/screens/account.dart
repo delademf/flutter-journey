@@ -205,7 +205,7 @@ class _AccountState extends State<Account> {
                   border: Border(bottom: BorderSide(color: Colors.grey,width: 0.2))
                 ),
                 child: TextButton(onPressed: () {
-                  Navigator.pushNamed(context, "/LoginScreen");
+                  Navigator.pushNamed(context, "/logIn");
                 },
                   child: Padding(
                     padding: const EdgeInsets.all(10),

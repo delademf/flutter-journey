@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:third_proj/components/restaurant.dart';
 import 'package:third_proj/components/restaurant_card.dart';
+import 'package:third_proj/helper/constant.dart';
 import 'package:third_proj/screens/chats.dart';
 import 'package:third_proj/screens/delete.dart';
 import 'package:third_proj/screens/orders.dart';
+import 'package:http/http.dart' as http;
 import 'package:third_proj/screens/profile.dart';
 
 class Dashboard extends StatefulWidget {
@@ -15,7 +19,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List<Restaurant> restaurants= [];
 
   get labelBehavior => null;
   int currentPageIndex = 0;
@@ -24,6 +27,49 @@ class _DashboardState extends State<Dashboard> {
         Chats(),
         Profile()
   ];
+
+
+ List<Restaurant> restaurants= [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Call your function here
+    retrieveAllRestaurants(context);
+  }
+
+
+
+Future<bool> retrieveAllRestaurants(BuildContext context) async {
+    //create uri
+    var uri = Uri.parse("$baseUrl/restaurant/find-all-restaurants");
+    //header
+   Map<String, String> header = {"Content-Type": "application/json"};
+
+    var response = await http.post(uri, headers: header);
+
+    List jsonResponse = json.decode(response.body);
+
+    var restaurantList = jsonResponse
+        .map((restaurant) => Restaurant.fromJson(restaurant))
+        .toList();
+
+    // Update state to trigger a rebuild
+    setState(() {
+      restaurants = restaurantList;
+    });
+
+
+    for (var restaurant in restaurants) {
+      print(restaurant.name);
+    }
+    //print the response body
+    print("${response.body}");
+    print("hello......................................................................................");
+
+
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -373,7 +419,8 @@ SizedBox(height: 20,),
           Container(
                 height:
                     400, 
-                child: ListView.builder(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => Divider(color: Colors.white),
                   itemCount: restaurants.length,
                   itemBuilder: (context, index) {
                     return RestaurantCard(
@@ -388,179 +435,179 @@ SizedBox(height: 20,),
 
 
 
- Container(
-  height: 400,
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [Image.asset('assets/images/r2.jpg'),
-                      ElevatedButton(onPressed: (){},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )  ),
-                        child: Container(
-                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                          // borderRadius: BorderRadius.circular(8)),
-                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                          child: Text('KFC',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
-                      )
-                      ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset("assets/images/like-shapes.png"),
-                          Text(
-                            '97%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
+//  Container(
+//   height: 400,
+//                 child: SingleChildScrollView(
+//                   child: Column(
+//                     children: [
+//                       Stack(
+//                         alignment: AlignmentDirectional.center,
+//                         children: [Image.asset('assets/images/r2.jpg'),
+//                       ElevatedButton(onPressed: (){},
+//                       style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(10)
+//                         )  ),
+//                         child: Container(
+//                           // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+//                           // borderRadius: BorderRadius.circular(8)),
+//                           // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+//                           child: Text('KFC',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+//                       )
+//                       ]),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Image.asset("assets/images/like-shapes.png"),
+//                           Text(
+//                             '97%',
+//                             style: TextStyle(
+//                                 fontSize: 12, fontWeight: FontWeight.w600),
+//                           )
+//                         ],
+//                       ),
                   
-                      Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [Image.asset('assets/images/r1.jpg'),
-                      ElevatedButton(onPressed: (){},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )  ),
-                        child: Container(
-                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                          // borderRadius: BorderRadius.circular(8)),
-                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 25),
-                          child: Text('McDonalds',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
-                      )
-                      ]),
+//                       Stack(
+//                         alignment: AlignmentDirectional.center,
+//                         children: [Image.asset('assets/images/r1.jpg'),
+//                       ElevatedButton(onPressed: (){},
+//                       style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(10)
+//                         )  ),
+//                         child: Container(
+//                           // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+//                           // borderRadius: BorderRadius.circular(8)),
+//                           // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 25),
+//                           child: Text('McDonalds',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+//                       )
+//                       ]),
                   
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset("assets/images/like-shapes.png"),
-                          Text(
-                            '98%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Image.asset("assets/images/like-shapes.png"),
+//                           Text(
+//                             '98%',
+//                             style: TextStyle(
+//                                 fontSize: 12, fontWeight: FontWeight.w600),
+//                           )
+//                         ],
+//                       ),
                       
-                      Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Image.asset('assets/images/r1.jpg'),
-                      ElevatedButton(onPressed: (){},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )  ),
-                        child: Container(
-                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                          // borderRadius: BorderRadius.circular(8)),
-                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                          child: Text('Currys',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
-                      )
-                      ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset("assets/images/like-shapes.png"),
-                          Text(
-                            '92%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
+//                       Stack(
+//                         alignment: AlignmentDirectional.center,
+//                         children: [
+//                           Image.asset('assets/images/r1.jpg'),
+//                       ElevatedButton(onPressed: (){},
+//                       style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(10)
+//                         )  ),
+//                         child: Container(
+//                           // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+//                           // borderRadius: BorderRadius.circular(8)),
+//                           // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+//                           child: Text('Currys',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+//                       )
+//                       ]),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Image.asset("assets/images/like-shapes.png"),
+//                           Text(
+//                             '92%',
+//                             style: TextStyle(
+//                                 fontSize: 12, fontWeight: FontWeight.w600),
+//                           )
+//                         ],
+//                       ),
                       
-                      Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [Image.asset('assets/images/r3.jpg'),
-                      ElevatedButton( onPressed: (){},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )  ),
-                        child: Container(
-                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                          // borderRadius: BorderRadius.circular(8)),
-                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+//                       Stack(
+//                         alignment: AlignmentDirectional.center,
+//                         children: [Image.asset('assets/images/r3.jpg'),
+//                       ElevatedButton( onPressed: (){},
+//                       style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(10)
+//                         )  ),
+//                         child: Container(
+//                           // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+//                           // borderRadius: BorderRadius.circular(8)),
+//                           // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
 
-                          child: Text('Posh Foods',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
-                      )
-                      ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset("assets/images/like-shapes.png"),
-                          Text(
-                            '75%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
+//                           child: Text('Posh Foods',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+//                       )
+//                       ]),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Image.asset("assets/images/like-shapes.png"),
+//                           Text(
+//                             '75%',
+//                             style: TextStyle(
+//                                 fontSize: 12, fontWeight: FontWeight.w600),
+//                           )
+//                         ],
+//                       ),
                   
-                      Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Image.asset('assets/images/r4.jpg'),
-                      ElevatedButton(onPressed: (){},
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )  ),
-                        child: Container(
-                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                          // borderRadius: BorderRadius.circular(8)),
-                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                          child: Text('AMALA',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
-                      )
-                      ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset("assets/images/like-shapes.png"),
-                          Text(
-                            '94%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
+//                       Stack(
+//                         alignment: AlignmentDirectional.center,
+//                         children: [
+//                           Image.asset('assets/images/r4.jpg'),
+//                       ElevatedButton(onPressed: (){},
+//                       style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(10)
+//                         )  ),
+//                         child: Container(
+//                           // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+//                           // borderRadius: BorderRadius.circular(8)),
+//                           // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+//                           child: Text('AMALA',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+//                       )
+//                       ]),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Image.asset("assets/images/like-shapes.png"),
+//                           Text(
+//                             '94%',
+//                             style: TextStyle(
+//                                 fontSize: 12, fontWeight: FontWeight.w600),
+//                           )
+//                         ],
+//                       ),
                   
                   
-                      Stack(
-                        alignment: AlignmentDirectional.center,
-                        children: [
-                          Container(decoration: 
-                          BoxDecoration(
-                             borderRadius: BorderRadius.all(Radius.circular(20))
-                          ),child: Image.asset('assets/images/r2.jpg')),
-                      Container(
-                        // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        // borderRadius: BorderRadius.circular(8)),
-                        // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                        child: ElevatedButton(onPressed: (){},
-                        style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )  ),
+//                       Stack(
+//                         alignment: AlignmentDirectional.center,
+//                         children: [
+//                           Container(decoration: 
+//                           BoxDecoration(
+//                              borderRadius: BorderRadius.all(Radius.circular(20))
+//                           ),child: Image.asset('assets/images/r2.jpg')),
+//                       Container(
+//                         // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+//                         // borderRadius: BorderRadius.circular(8)),
+//                         // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+//                         child: ElevatedButton(onPressed: (){},
+//                         style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+//                           borderRadius: BorderRadius.circular(10)
+//                         )  ),
                         
-                        child: Text('RICE',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))))
-                      ]),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset("assets/images/like-shapes.png"),
-                          Text(
-                            '98%',
-                            style: TextStyle(
-                                fontSize: 12, fontWeight: FontWeight.w600),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              )
+//                         child: Text('RICE',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))))
+//                       ]),
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         children: [
+//                           Image.asset("assets/images/like-shapes.png"),
+//                           Text(
+//                             '98%',
+//                             style: TextStyle(
+//                                 fontSize: 12, fontWeight: FontWeight.w600),
+//                           )
+//                         ],
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               )
             
 
             
@@ -575,7 +622,7 @@ SizedBox(height: 20,),
 
 // Future<bool> retrieveAllRestaurants(BuildContext context) async {
 //     //create uri
-//     var uri = Uri.parse("https://c8aa-196-61-37-18.ngrok-free.app/restaurant/find-all-restaurants");
+//     var uri = Uri.parse("$baseUrl/restaurant/find-all-restaurants");
 //     //header
 //    Map<String, String> header = {"Content-Type": "application/json"};
 
@@ -600,29 +647,6 @@ SizedBox(height: 20,),
 //     print("${response.body}");
 //     print("hello......................................................................................");
 
-
-//     // if (response.statusCode == 200) {
-//     //   Navigator.pushNamed(context, '/dashboard');
-
-//     //   // Navigator.push(context, MaterialPageRoute(builder: (context) => Dashboard()));
-//     // } else {
-//     //   print('Request failed with status: ${response.statusCode}.');
-//     // }
-
-//     // if (response.body.contains('token')) {
-//     //   print("registered");
-//     //   displayToastMessage("You are logged in", context);
-//     //   userEmail = '$email';
-//     //   print("Your email is " + userEmail);
-//     //   Navigator.pushNamedAndRemoveUntil(
-//     //       context as BuildContext, MainScreen.idScreen, (route) => false);
-//     //   return true;
-//     // } else {
-//     //   print("null not registered");
-//     //   displayToastMessage("Account does not exist", context);
-//     //   Navigator.pop(context);
-//     //   return false;
-//     // }
 
 //     return true;
 //   }
