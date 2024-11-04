@@ -31,7 +31,7 @@ class _AccountState extends State<Account> {
 
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 70),
-                          child: Text("Update User", style: TextStyle(color: Color(0xFF31B2ED),fontSize: 20),),
+                          child: Text("     Account", style: TextStyle(color: Color(0xFF31B2ED),fontSize: 20),),
                         )
                   ],
                 ),

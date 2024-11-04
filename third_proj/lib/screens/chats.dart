@@ -40,9 +40,7 @@ class _ChatsState extends State<Chats> {
 
           SizedBox(height: 15,),
            TextField(
-
                         decoration: InputDecoration(
-                          
                             filled: true,
                             fillColor: Color(0xFF31B2ED),
                             prefixIcon: Icon(

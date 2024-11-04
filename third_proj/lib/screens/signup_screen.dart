@@ -390,7 +390,7 @@ class _SignUpState extends State<SignUp> {
                                     child: Container(
                                       height: 90,
                                       width: 90,
-                                      child: IconButton(onPressed: (){}, icon: Icon(Icons.facebook_rounded)),
+                                      child: IconButton(onPressed: (){}, icon: Icon(Icons.facebook_rounded,color: Colors.white,)),
                                     ),
                                   ),
                                   GestureDetector(
@@ -398,7 +398,7 @@ class _SignUpState extends State<SignUp> {
                                     child: Container(
                                       height: 90,
                                       width: 90,
-                                      child: IconButton(onPressed: (){}, icon: Icon(Icons.apple_rounded))
+                                      child: IconButton(onPressed: (){}, icon: Icon(Icons.apple_rounded,color: Colors.white))
                                     ),
                                   ),
                                   GestureDetector(

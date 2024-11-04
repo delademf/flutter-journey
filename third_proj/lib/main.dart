@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:third_proj/helper/api_services.dart';
 import 'package:third_proj/screens/burger_spot.dart';
 import 'package:third_proj/screens/chats.dart';
+import 'package:third_proj/screens/location.dart';
 import 'package:third_proj/screens/logIn_screen.dart';
 import 'package:third_proj/screens/main_screen.dart';
 import 'package:third_proj/screens/onboarding1.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
         '/pizzaSpot': (context) => PizzaSpot(),
         '/SandwichSpot': (context) => SandwichSpot(),
         '/update': (context) => UpdateProfileScreen(),
+        '/location': (context) => Location(),
 
         // Add more routes as needed
       },

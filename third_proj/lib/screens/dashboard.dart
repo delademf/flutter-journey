@@ -74,7 +74,8 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/Order');
+                  // Navigator.pushNamed(context, '/Order');
+                  Navigator.pushNamed(context, '/location');
                 },
               ),
             ),

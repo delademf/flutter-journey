@@ -16,7 +16,7 @@ class _LocationState extends State<Location> {
               children: [
                 Container(
                       width: 400,
-                      height: 400,
+                      height: 500,
                       child: GoogleMap(
                       initialCameraPosition: CameraPosition(
                         target: LatLng(5.630676975294035, -0.02492537841025456),
@@ -31,7 +31,7 @@ class _LocationState extends State<Location> {
                     color: Color(0xFF31B2ED))
                   ,child: IconButton(onPressed:(){
                     Navigator.pushNamed(context, "/Mainscreen");
-                  }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,) )),
+                  }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,))),
                 ),
               ],
             ),
