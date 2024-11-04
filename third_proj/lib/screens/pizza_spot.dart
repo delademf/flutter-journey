@@ -60,7 +60,9 @@ class _PizzaSpotState extends State<PizzaSpot> {
                             child: Text("Popular",style: TextStyle(color: Colors.white),),
                           ),
                         ),
-                        Icon(Icons.location_on_rounded,color: Color(0xFF31B2ED),)
+                        IconButton(onPressed: (){
+                          Navigator.pushNamed(context, '/location');
+                        }, icon: Icon(Icons.location_on_rounded,color: Color(0xFF31B2ED))),
                       ],
                     ),
                     SizedBox(height: 20,),

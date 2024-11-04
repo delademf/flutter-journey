@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:third_proj/components/restaurant.dart';
+import 'package:third_proj/components/restaurant_card.dart';
 import 'package:third_proj/screens/chats.dart';
 import 'package:third_proj/screens/delete.dart';
 import 'package:third_proj/screens/orders.dart';
@@ -13,6 +15,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  List<Restaurant> restaurants= [];
 
   get labelBehavior => null;
   int currentPageIndex = 0;
@@ -74,8 +77,8 @@ class _DashboardState extends State<Dashboard> {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  // Navigator.pushNamed(context, '/Order');
-                  Navigator.pushNamed(context, '/location');
+                  Navigator.pushNamed(context, '/Order');
+                  // Navigator.pushNamed(context, '/location');
                 },
               ),
             ),
@@ -366,6 +369,25 @@ SizedBox(height: 20,),
               ),
           ),
           SizedBox(height: 20,),
+
+          Container(
+                height:
+                    400, 
+                child: ListView.builder(
+                  itemCount: restaurants.length,
+                  itemBuilder: (context, index) {
+                    return RestaurantCard(
+                      restaurantName: restaurants[index].name,
+                      restaurantImage: restaurants[index].image,
+                      restaurantId: restaurants[index].id,
+                    );
+                  },
+                ),
+              ),
+
+
+
+
  Container(
   height: 400,
                 child: SingleChildScrollView(

@@ -327,7 +327,7 @@ body: SingleChildScrollView(
     // }
 
     if (response.statusCode == 200) {
-      Navigator.pushNamed(context, '/LoginScreen');
+      Navigator.pushNamed(context, '/LogIn');
     }
 
     return true;
