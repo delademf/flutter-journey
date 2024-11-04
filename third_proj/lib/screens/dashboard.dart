@@ -128,7 +128,7 @@ class _DashboardState extends State<Dashboard> {
                 leading: Icon(Icons.update,
                     color: Color(0xFF31B2ED)),
                     onTap: () {
-                      Navigator.pushNamed(context, '/update');
+                      _showAlertDialog(context);
                     },
                 title: Text('update user'),
                 shape:
@@ -314,7 +314,7 @@ SizedBox(height: 20,),
               ),
               SizedBox(width: 20,),
               ElevatedButton(onPressed: () {
-                Navigator.pushNamed(context, '/BurgerSpot');
+                Navigator.pushNamed(context, '/pizzaSpot');
               },
               style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF31B2ED),
@@ -337,7 +337,7 @@ SizedBox(height: 20,),
               ),
               SizedBox(width: 20,),
               ElevatedButton(onPressed: () {
-                
+                Navigator.pushNamed(context, "/sandwichSpot");
               },
               style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF31B2ED),
@@ -583,3 +583,30 @@ SizedBox(height: 20,),
 
 
 // logger.d('Log message with 2 methods');
+
+void _showAlertDialog(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Alert Dialog Title'),
+        content: Text('This is a simple alert dialog.'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              // TODO: Add functionality for the "OK" button
+            },
+            child: Text('OK'),
+          ),
+        ],
+      );
+    },
+  );
+}
