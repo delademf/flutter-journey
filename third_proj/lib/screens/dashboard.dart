@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:third_proj/screens/chats.dart';
+import 'package:third_proj/screens/delete.dart';
 import 'package:third_proj/screens/orders.dart';
 import 'package:third_proj/screens/profile.dart';
 
@@ -137,6 +138,7 @@ class _DashboardState extends State<Dashboard> {
                 leading: Icon(Icons.delete_forever,
                     color: Color(0xFF31B2ED)),
                     onTap: () {
+                      _showAlertDialogdelete(context);
                     },
                 title: Text('Delete'),
                 shape:
@@ -337,7 +339,7 @@ SizedBox(height: 20,),
               ),
               SizedBox(width: 20,),
               ElevatedButton(onPressed: () {
-                Navigator.pushNamed(context, "/sandwichSpot");
+                Navigator.pushNamed(context, "/SandwichSpot");
               },
               style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF31B2ED),
@@ -371,11 +373,16 @@ SizedBox(height: 20,),
                       Stack(
                         alignment: AlignmentDirectional.center,
                         children: [Image.asset('assets/images/r2.jpg'),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                        child: Text('KFC',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)))
+                      ElevatedButton(onPressed: (){},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+                        child: Container(
+                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+                          // borderRadius: BorderRadius.circular(8)),
+                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                          child: Text('KFC',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+                      )
                       ]),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -391,16 +398,17 @@ SizedBox(height: 20,),
                   
                       Stack(
                         alignment: AlignmentDirectional.center,
-                        children: [Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
-                          child: Image.asset('assets/images/r1.jpg')),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 25),
-                        child: Text('McDonalds',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)))
+                        children: [Image.asset('assets/images/r1.jpg'),
+                      ElevatedButton(onPressed: (){},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+                        child: Container(
+                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+                          // borderRadius: BorderRadius.circular(8)),
+                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 25),
+                          child: Text('McDonalds',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+                      )
                       ]),
                   
                       Row(
@@ -418,14 +426,17 @@ SizedBox(height: 20,),
                       Stack(
                         alignment: AlignmentDirectional.center,
                         children: [
-                          Container(decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),child: Image.asset('assets/images/r1.jpg')),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                        child: Text('Currys',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)))
+                          Image.asset('assets/images/r1.jpg'),
+                      ElevatedButton(onPressed: (){},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+                        child: Container(
+                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+                          // borderRadius: BorderRadius.circular(8)),
+                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                          child: Text('Currys',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+                      )
                       ]),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -442,11 +453,17 @@ SizedBox(height: 20,),
                       Stack(
                         alignment: AlignmentDirectional.center,
                         children: [Image.asset('assets/images/r3.jpg'),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                        child: Text('Posh Foods',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)))
+                      ElevatedButton( onPressed: (){},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+                        child: Container(
+                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+                          // borderRadius: BorderRadius.circular(8)),
+                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+
+                          child: Text('Posh Foods',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+                      )
                       ]),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -463,15 +480,17 @@ SizedBox(height: 20,),
                       Stack(
                         alignment: AlignmentDirectional.center,
                         children: [
-                          Container(decoration:BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                          ),
-                          child:  Image.asset('assets/images/r4.jpg')),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                        child: Text('AMALA',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)))
+                          Image.asset('assets/images/r4.jpg'),
+                      ElevatedButton(onPressed: (){},
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+                        child: Container(
+                          // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+                          // borderRadius: BorderRadius.circular(8)),
+                          // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                          child: Text('AMALA',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))),
+                      )
                       ]),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -494,10 +513,15 @@ SizedBox(height: 20,),
                              borderRadius: BorderRadius.all(Radius.circular(20))
                           ),child: Image.asset('assets/images/r2.jpg')),
                       Container(
-                        decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(8)),
-                        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                        child: Text('RICE',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)))
+                        // decoration: BoxDecoration(color: Colors.black.withOpacity(0.5),
+                        // borderRadius: BorderRadius.circular(8)),
+                        // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+                        child: ElevatedButton(onPressed: (){},
+                        style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10)
+                        )  ),
+                        
+                        child: Text('RICE',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800))))
                       ]),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -589,24 +613,54 @@ void _showAlertDialog(BuildContext context) {
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: Text('Alert Dialog Title'),
-        content: Text('This is a simple alert dialog.'),
+        backgroundColor: Colors.white,
+        title: Text('Update User',),
+        content: Text('Are you  sure you want to update user?'),
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop();
+              Navigator.pushNamed(context, "/update");
             },
-            child: Text('Cancel'),
+            child: Text('Yes',style: TextStyle(color: Color(0xFF31B2ED))),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop();
               // TODO: Add functionality for the "OK" button
             },
-            child: Text('OK'),
+            child: Text('No',style: TextStyle(color: Color(0xFF31B2ED)),),
           ),
         ],
       );
     },
   );
 }
+void _showAlertDialogdelete(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        title: Text('Delete Account',),
+        content: Text('Are you  sure you want to delete your account?'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              deleteUser(context);
+            },
+            child: Text('Yes',style: TextStyle(color: Color(0xFF31B2ED))),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              // TODO: Add functionality for the "OK" button
+            },
+            child: Text('No',style: TextStyle(color: Color(0xFF31B2ED)),),
+          ),
+        ],
+      );
+    },
+  );
+}
+
+

@@ -12,12 +12,31 @@ class _AccountState extends State<Account> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        ),
+      
         body: SingleChildScrollView(
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 10,top: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                          decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Color(0xFF31B2ED)              )
+                        ,child: IconButton(onPressed:(){
+                          Navigator.pushNamed(context, "/Mainscreen");
+                        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,) )),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 70),
+                          child: Text("Update User", style: TextStyle(color: Color(0xFF31B2ED),fontSize: 20),),
+                        )
+                  ],
+                ),
+              ),
+              SizedBox(height: 10,),
               Container(
                 decoration: BoxDecoration(
                   color: Color(0xFF31B2ED)

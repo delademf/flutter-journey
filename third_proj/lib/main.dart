@@ -9,9 +9,12 @@ import 'package:third_proj/screens/onboarding1.dart';
 import 'package:third_proj/screens/onboarding2.dart';
 import 'package:third_proj/screens/onboarding3.dart';
 import 'package:third_proj/screens/orders.dart';
+import 'package:third_proj/screens/pizza_spot.dart';
 import 'package:third_proj/screens/profile.dart';
+import 'package:third_proj/screens/sandwich_spot.dart';
 import 'package:third_proj/screens/signup_screen.dart';
 import 'package:third_proj/screens/splash.dart';
+import 'package:third_proj/screens/update.dart';
 
 void main() {
   runApp(
@@ -44,6 +47,9 @@ class MyApp extends StatelessWidget {
         '/Prifile': (context) => Profile(),
         '/Mainscreen': (context) => MainScreen(),
         '/BurgerSpot': (context) => BurgerSpot(),
+        '/pizzaSpot': (context) => PizzaSpot(),
+        '/SandwichSpot': (context) => SandwichSpot(),
+        '/update': (context) => UpdateProfileScreen(),
 
         // Add more routes as needed
       },

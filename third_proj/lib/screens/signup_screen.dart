@@ -383,21 +383,37 @@ class _SignUpState extends State<SignUp> {
                       ),
                       SizedBox(height: 10),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset("assets/images/ic_google.png"),
-                          Icon(
-                            Icons.facebook_outlined,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                          Icon(
-                            Icons.apple,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                        ],
-                      ),
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: 90,
+                                      width: 90,
+                                      child: IconButton(onPressed: (){}, icon: Icon(Icons.facebook_rounded)),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: 90,
+                                      width: 90,
+                                      child: IconButton(onPressed: (){}, icon: Icon(Icons.apple_rounded))
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: () {},
+                                    child: Container(
+                                      height: 90,
+                                      width: 90,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/ic_google.png'))),
+                                    ),
+                                  ),
+                                ],
+                              ),
                       SizedBox(height: 50)
                     ],
                   ),

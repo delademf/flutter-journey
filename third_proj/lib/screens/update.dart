@@ -44,63 +44,46 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Padding(
-          padding: EdgeInsets.only(bottom: 130),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/dashboard');
-            },
-            child: Icon(Icons.arrow_back_ios),
-          ),
-        ),
-        toolbarHeight: 200,
         backgroundColor: Colors.white,
-        flexibleSpace: ClipPath(
-          clipper: Customshape(),
-          child: Container(
-            height: 250,
-            width: MediaQuery.of(context).size.width,
-            color: const Color(0xFFE5D2ED),
-            child: const Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 40),
-                    child: Text(
-                      "Lobace Food",
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  Text(
-                    "Delivery",
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF9139BA)),
-                  ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Text(
-                    "Update Profile",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
-                  )
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-      body: SingleChildScrollView(
+        // appBar: AppBar(
+        //     backgroundColor: Colors.white,
+        //     title: const Row(
+        //       mainAxisAlignment: MainAxisAlignment.end,
+        //       children: [
+        //         const Text('',
+        //             style: TextStyle(
+        //                 fontFamily: 'Nunito',
+        //                 fontWeight: FontWeight.w700,
+        //                 color: Colors.black,
+        //                 fontSize: 24))
+        //       ],
+        //     )),
+        
+body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 15, right: 15, bottom: 40),
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15,top: 40),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                          decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Color(0xFF31B2ED)              )
+                        ,child: IconButton(onPressed:(){
+                          Navigator.pushNamed(context, "/Mainscreen");
+                        }, icon: Icon(Icons.arrow_back_ios,color: Colors.white,) )),
+
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 70),
+                          child: Text("Update User", style: TextStyle(color: Color(0xFF31B2ED),fontSize: 20),),
+                        )
+                  ],
+                ),
+              ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -262,7 +245,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 14),
-                  backgroundColor: const Color(0xFF9139BA),
+                  backgroundColor: const Color(0xFF31B2ED),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -353,3 +336,4 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
 
 }
+

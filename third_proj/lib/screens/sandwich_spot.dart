@@ -67,7 +67,7 @@ class _SandwichSpotState extends State<SandwichSpot> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Text("Chicken Burger",style: TextStyle(fontSize: 28),),
+                        Text("Chicken Sandwich",style: TextStyle(fontSize: 28),),
                       ],
                     ),
                     Row(
@@ -77,18 +77,18 @@ class _SandwichSpotState extends State<SandwichSpot> {
                       ],
                     ),
                     Text("""
-Pizza Lovers’ Paradise! 🍕🔥
+Stacked Sandwich Deal! 🥪✨
 
-Prepare yourself for a pizza feast like no other with our *Pizza Promo Pack*! Loaded with all the cheesy, saucy goodness you crave, this pack is a true slice of heaven for all pizza fans out there!
+Brace yourself for the ultimate sandwich experience with our *Stacked Sandwich Deal*! Packed with layers of fresh, flavorful ingredients, this deal is a must-try for sandwich lovers everywhere!
 
 What’s Inside:
-- 2 Large Signature Pizzas - Choose from a variety of our best-selling flavors, each topped with a perfect blend of cheeses, fresh veggies, and premium meats on our signature crispy crust.
-- Garlic Breadsticks - Warm, soft, and loaded with garlic butter goodness – the ideal complement to every slice.
-- Refreshing Drink - Pick from our range of beverages to cool down as you enjoy every delicious bite!
+- 2 Gourmet Sandwiches - Choose from our selection of mouth-watering options, each crafted with artisan bread, fresh veggies, and premium meats and cheeses.
+- Crispy Side Snack - Golden chips or a fresh side salad to pair perfectly with your sandwich.
+- Refreshing Drink - Select from a range of beverages to complete your meal and keep you energized!
 
-Perfect for a group hangout or a solo pizza night – because with two pizzas, there’s plenty to share (or not)! Don’t miss this fantastic deal – *available for a limited time only*!
+Perfect for lunch, dinner, or any time in between! Grab a friend or enjoy it solo – this deal won’t be around forever, so make it yours while it lasts!
 
-Order your Pizza Promo Pack now and treat yourself to a pizza paradise!
+Order your Stacked Sandwich Deal* today and dive into sandwich perfection!
                     """)
                   ],
                 ),
