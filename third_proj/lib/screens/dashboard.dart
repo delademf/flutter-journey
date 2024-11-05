@@ -7,6 +7,7 @@ import 'package:third_proj/components/restaurant_card.dart';
 import 'package:third_proj/helper/constant.dart';
 import 'package:third_proj/screens/chats.dart';
 import 'package:third_proj/screens/delete.dart';
+import 'package:third_proj/screens/orderHistory.dart';
 import 'package:third_proj/screens/orders.dart';
 import 'package:http/http.dart' as http;
 import 'package:third_proj/screens/profile.dart';
@@ -23,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
   get labelBehavior => null;
   int currentPageIndex = 0;
   final List<Widget> pages =[
-        Orders(),
+        Orderhistory(),
         Chats(),
         Profile()
   ];
@@ -157,6 +158,9 @@ Future<bool> retrieveAllRestaurants(BuildContext context) async {
                 Icons.delivery_dining_outlined,
                 color: Color(0xFF31B2ED),
               ),
+              onTap: () {
+                      Navigator.pushNamed(context, '/odersSummary');
+                    },
               title: Text('Online order'),
               shape: Border(bottom: BorderSide(color: Colors.grey, width: 0.2)),
             ),

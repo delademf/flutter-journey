@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:third_proj/screens/restaurant_screen.dart';
 import 'package:third_proj/screens/restsaurant_screen.dart';
 // import 'package:second_proj/screens/restaurant_screen.dart';
 
@@ -27,7 +28,7 @@ class RestaurantCard extends StatelessWidget {
         // padding: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
         child: ElevatedButton(onPressed: (){ 
           Navigator.push(context, MaterialPageRoute(builder: (context) => RestaurantScreen(id: restaurantId)));},
-          child:  Text('KFC',style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)),
+          child:  Text(restaurantName,style: TextStyle(fontSize: 14,color:Colors.white,fontWeight: FontWeight.w800)),
           style: ElevatedButton.styleFrom(backgroundColor: Colors.black.withOpacity(0.5), shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)
                         )  ),

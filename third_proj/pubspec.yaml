@@ -39,7 +39,7 @@ dependencies:
   logger: ^2.4.0
   shared_preferences: ^2.0.15
   google_maps_flutter: ^2.9.0
-  provider:
+  provider: ^6.0.0
 
 dev_dependencies:
   flutter_test:

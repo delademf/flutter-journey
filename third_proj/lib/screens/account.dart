@@ -46,7 +46,7 @@ class _AccountState extends State<Account> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('ecl Food Service Account',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w700),),
+                      child: Text('ecl Food Service Account',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w700, color: Colors.white),),
                     )
                     
                   ],
@@ -160,7 +160,7 @@ class _AccountState extends State<Account> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Icon(Icons.settings,color: Color(0xFF31B2ED),),
-                          Text(' Settings',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16),),
+                          Text(' Settings',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 16,),),
                         ],
                       ),
                   ),
@@ -175,7 +175,7 @@ class _AccountState extends State<Account> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('  SETTINGS',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w700),),
+                      child: Text('  SETTINGS',style: TextStyle(fontSize: 12,fontWeight: FontWeight.w700,color: Colors.white),),
                     )
                     
                   ],
