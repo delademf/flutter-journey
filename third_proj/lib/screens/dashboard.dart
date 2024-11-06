@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:third_proj/components/restaurant.dart';
 import 'package:third_proj/components/restaurant_card.dart';
 import 'package:third_proj/helper/constant.dart';
+import 'package:third_proj/screens/account.dart';
 import 'package:third_proj/screens/chats.dart';
 import 'package:third_proj/screens/delete.dart';
 import 'package:third_proj/screens/orderHistory.dart';
@@ -26,7 +27,8 @@ class _DashboardState extends State<Dashboard> {
   final List<Widget> pages =[
         Orderhistory(),
         Chats(),
-        Profile()
+        // Profile(),
+        Account()
   ];
 
 
@@ -124,7 +126,7 @@ Future<bool> retrieveAllRestaurants(BuildContext context) async {
                   color: Colors.white,
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/Order');
+                  Navigator.pushNamed(context, '/odersSummary');
                   // Navigator.pushNamed(context, '/location');
                 },
               ),

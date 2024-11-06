@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:third_proj/screens/logIn_screen.dart';
 
 class Account extends StatefulWidget {
   const Account({super.key});
@@ -57,6 +58,8 @@ class _AccountState extends State<Account> {
                   border: Border(bottom: BorderSide(color: Colors.grey,width: 0.2))
                 ),
                 child: TextButton(onPressed: (){
+                Navigator.pushNamed(context, "/Profile");
+
                 },
                   child: Padding(
                     padding: const EdgeInsets.all(10),
@@ -205,7 +208,7 @@ class _AccountState extends State<Account> {
                   border: Border(bottom: BorderSide(color: Colors.grey,width: 0.2))
                 ),
                 child: TextButton(onPressed: () {
-                  Navigator.pushNamed(context, "/logIn");
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LogIn()));
                 },
                   child: Padding(
                     padding: const EdgeInsets.all(10),

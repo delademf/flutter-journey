@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:third_proj/screens/main_screen.dart';
 
 class Successful extends StatefulWidget {
   const Successful({super.key});
@@ -55,7 +56,7 @@ Get ready for delivery soon—thanks for choosing us! 📦💨''',
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton( onPressed: (){
-                      Navigator.pushNamed(context, '/Mainscreen');},
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context) => const MainScreen()));},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Color(0xFF31B2ED),
                         shape: RoundedRectangleBorder(

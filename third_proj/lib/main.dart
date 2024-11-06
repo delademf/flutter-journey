@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
         '/logIn': (context) => LogIn(),
         '/Order': (context) => Orders(),
         '/Chats': (context) => Chats(),
-        '/Prifile': (context) => Profile(),
+        '/Profile': (context) => Profile(),
         '/Mainscreen': (context) => MainScreen(),
         '/BurgerSpot': (context) => BurgerSpot(),
         '/pizzaSpot': (context) => PizzaSpot(),
@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
         '/location': (context) => Location(),
         '/odersSummary': (context) => OrderSummaryScreen(),
         '/successful': (context) => Successful(),
+
         // '/restaurant_screen': (context) => RestaurantScreen(id: 0),
 
         // Add more routes as needed
